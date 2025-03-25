@@ -22,12 +22,15 @@
 |7일차|[이동 버튼](#7일차)|
 |ㅡㅡㅡ|ㅡㅡㅡ|
 |8일차|[이동 버튼](#8일차)|
+|ㅡㅡㅡ|ㅡㅡㅡ|
+|9일차|[이동 버튼](#9일차)|
 
 <hr/>
 
 # 1일차
 
 ```Python
+
 print("Hello World!")
 # print("Hello World!")
 
@@ -41,6 +44,7 @@ print("나는 나다.")
 print(12)
 a = 12
 print(a)
+
 ```
 
 <hr/>
@@ -48,6 +52,7 @@ print(a)
 # 2일차
 
 ```Python
+
 # 02-1. 숫자형 자료형
 """
 숫자형이란 숫자 형태로 이루어진 자료형으로.
@@ -122,6 +127,7 @@ multiline = '''
 Life is too short
 You need Python
 '''
+
 ```
 
 <hr/>
@@ -129,6 +135,7 @@ You need Python
 # 3일차
 
 ```Python
+
 # <예제 1>
 score = 70
 print("첫 번째 점수 : ", score)
@@ -148,6 +155,7 @@ age = 18
 pi = 3.14
 x = 'abc'
 type(age)
+
 ```
 
 <hr/>
@@ -155,6 +163,7 @@ type(age)
 # 4일차
 
 ```Python
+
 # 문자열 연산
 # 1. 문자열 덧셈
 head = "Pyton"
@@ -223,6 +232,7 @@ weather = a[8:]
 #     변수 a와 문자열 'y'만 사용하여 'Python'을 출력하시오.
 a = 'Pithon'
 print(a[:1],'y',a[2:])
+
 ```
 
 <hr/>
@@ -230,6 +240,7 @@ print(a[:1],'y',a[2:])
 # 5일차
 
 ```Python
+
 # Q2. 변수 a에 'Pithon'이라는 문자열이 저장되어 있다.
 #     변수 a와 문자열 'y'만 사용하여 'Python'을 출력하시오.
 a = 'Pithon'
@@ -255,6 +266,7 @@ a[3:12:3] #eso
 a[-18:28:2] #t o ed
 a[-15:-3:2] #Yune y
 a[2:21:] #fe is too short, Yo
+
 ```
 
 <hr/>
@@ -262,6 +274,7 @@ a[2:21:] #fe is too short, Yo
 # 6일차
 
 ```Python
+
 # 문자열 포매팅
 """
 "현재 온도는 18도입니다."의 문자열이 시간이 지나서
@@ -447,6 +460,87 @@ print("I eat (1) apples. So I was sick for (2) days"%(number, day))
 
 # 8일차
 
-곧 배움
+```Python
+
+# f 문자열 포맷팅
+name = '홍길동'
+age = 30
+f'나의 이름은 {name}입니다. 나이는 {age}입니다.'
+
+# 1. 수식
+f'나는 내년이면 {age+1}살이 된다.'
+# '나는 내년이면 31살이 된다.'
+
+# 2. 딕셔너리(Key값과 같은 Value값을 한 쌍으로 갖는 자료형)
+d = {'name':'홍길동', 'age' : 30}
+f'나의 이름은 {d["name"]}입니다. 나이는 {d["age"]}입니다.
+
+# 3. 정렬
+f'{"hi":<10}'   # 'hi        ' (왼쪽 정렬)
+f'{"hi":>10}'   # '        hi' (오른쪽 정렬)
+f'{"hi":^10}'   # '    hi    ' (가운데 정렬)
+f'{"hi":=^10}'   # '    hi    ' (가운데 정렬하고 '='문자로 공백 채우기)
+
+# 4. 소수점 표현
+y = 3.42134234
+f'{y:0.4f}'     # '3.4213' (소수점 네번째 자리까지만 출력)
+f'{y:10.4f}'     # '    3.4213' (소수점 네번째 자리까지만 출력하고
+                 #               전체 자리수를 10으로 맞춤)
+
+# 5. {}문자 표현
+f'{{and}}'  # '{and}'
+
+# Q. f 문자열 포매팅을 사용해 ' !!!python!!! ' 문자열을 출력하시오.
+# 정답 :
+f'{"!!!python!!!":^14}'
+"{0:^14}".format('!!!python!!!') #이것도 가능
+
+# 문자열 관련 함수
+# 1. 문자열 길이 구하기
+a = 'Life is too short'
+len(a)  # 17 출력
+
+# 2. 특정 문자의 개수 구하기(count)
+a = 'hobby'
+a.count('b')    # 2 출력
+
+# 3. 위치 알려주기 1(find)
+a = 'Python is the best choice'
+a.find('n')     # 5
+a.find('e')     # 12 (e가 처음으로 나온 위치를 반환)
+a.find('k')     # -1 (찾는 문자나 문자열이 존재하지 않는다면 -1 반환)
+
+# 4. 위치 알려주기 2(index)
+a = 'Python is the best choice'
+a.index('t')    # 2
+a.index('k')    # 오류 발생
+
+# 5. 문자열 삽입(join)
+a = '_'
+b = 'abcd'
+a.join(b)   # 'a_b_c_d' (변수 a의 '_'가 변수 b에 저장된
+            #            문자열 사이사이에 '_'가 삽입된)
+# a.join('abcd') # 'a_b_c_d'
+",".join(b) # 'a,b,c,d,'
+
+# 6. 대문자를 소문자로 바꾸기(lower)
+a = 'HI'
+a.lower # 'hi'
+
+# 7. 소문자를 대문자로 바꾸기(upper)
+a = 'hello'
+a.upper() # 'HELLO'
+
+```
 
 <hr/>
+
+# 9일차
+
+곧 배움
+
+```Python
+
+Print("곧 배움")
+
+```
