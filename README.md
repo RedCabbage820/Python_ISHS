@@ -230,7 +230,7 @@ weather = a[8:]
 # Q2. 변수 a에 'Pithon'이라는 문자열이 저장되어 있다.
 #     변수 a와 문자열 'y'만 사용하여 'Python'을 출력하시오.
 a = 'Pithon'
-print(a[:1],'y',a[2:])
+print(a[:1]+'y'+a[2:])
 
 ```
 
