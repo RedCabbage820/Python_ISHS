@@ -26,7 +26,8 @@
 |16차|[이동 버튼 16](#16차)|
 |17차|[이동 버튼 17](#17차)|
 |18차|[이동 버튼 18](#18차)|
-|19차|[이동 버튼 18](#19차)|
+|19차|[이동 버튼 19](#19차)|
+|20차|[이동 버튼 20](#20차)|
 
 <hr/>
 
@@ -1562,6 +1563,153 @@ if "card" not in pocket :
     pass
 else :
     print("버스를 타다")
+
+```
+
+<hr/>
+
+# 20차
+
+```Python
+
+# 11.5 다양한 조건을 판단하는 elif
+# 11.5.1 elif의 형태
+if 조건식 1 :
+    수행할 문장 1-1
+    수행할 문장 1-2
+    ...
+elif 조건식 2 :
+    수행할 문장 2-1
+    수행할 문장 2-2
+    ...
+elif 조건식 n :
+    수행할 문장 n-1
+    수행할 문장 n-2
+    ...
+else :
+    수행할 문장 B
+    수행할 문장 A
+    ...
+
+※ elif 의 개수는 제한없이 사용 가능
+
+# Q1. 현재 내 주머니(pocket)에 종이(paper), 휴대전화(cellphone), 카드(card)
+#     가 있다. 다음 문장을 elif를 사용하여 프로그래밍 하시오.
+#     (단, pocket이라는 리스트 변수를 만들어 paper, cellphone, card를 리스트
+#     안에 넣어 사용하시오
+"""
+주머니에 돈이 있으면 택시를 타고, 주머니에 돈은 없지만 카드가 있다면
+버스를 타고, 돈도 없고 카드로 없으면 걸어간다.
+"""
+pocket = ['paper', 'cellphone', 'card']
+if ________________ :
+    print("택시를 타다")
+elif _______________ :
+    print("버스를 타다")
+else :
+    print("걸어서 가다")
+#정답 :
+pocket = ['paper', 'cellphone', 'card']
+if 'money' in pocket :
+    print("택시를 타다")
+elif 'card' in pocket :
+    print("버스를 타다")
+else :
+    print("걸어서 가다")
+
+# 실행 결과 : '버스를 타다' 출력
+
+# Q2. 다음 소스 코드를 완성하여 입력한 숫자가 11과 20 사이면
+#     '11~20', 21과 30 사이면 '21~30', 아무것도 해당되지 않으면
+#     '아무것도 해당되지 않음'이 출력되게 하시오.
+
+x = int(input())
+________________
+________________
+________________
+________________
+________________
+________________
+
+# 실행결과 :
+5 (입력)
+아무것도 해당되지 않음
+15 (입력)
+11~20
+
+# 정답 :
+x = int(input())
+if x >= 11 and x <= 20 :
+    print("11~20")
+elif x >= 21 and x <= 30 :
+    print('21~30')
+else :
+    print('아무것도 해당되지 않음')
+# 다른 정답
+x = int(input())
+if 11 <= x <= 20 :
+    print("11~20")
+elif 21 <= x <= 30 :
+    print('21~30')
+else :
+    print('아무것도 해당되지 않음')
+
+
+# 11.6 조건부 표현식
+score = 60
+if score >= 60:
+    message = "합격"
+else :
+    message = "불합격"
+    # 변수 message에 '합격'이라는 문자열이 저장됨.
+
+# 위 프로그램을 아래와 같이 바꿔서 쓸 수 있다.
+
+score = 60
+message = "합격" if score >= 60 else "불합격"
+
+"""
+조건문이 참인 경우에 수행할 문장("합격") + if + 조건식(score >= 60)
++ else + 조건문이 거짓인 경우의 수행할 문장("불합격")
+"""
+
+# Q1. 다음 코드의 실행 결과를 예측하시오.
+a = "Life is too short, you need python"
+
+if "wife" in a: print("wife")
+elif "python" in a and "you" not in a: print("python")
+elif "shirt" not in a: print("shirt")
+elif "need" in a: print("need")
+else: print("none")
+ # 정답 : shirt
+"""
+python은 a 안에 있으나, you는 a 안에 있기 때문에 python이 출력되지 않는다.
+shirt는 a 안에 없기에 shirt가 출력된다.
+shirt not in a가 만족되기에 다음 조건식으로 넘어갈 필요가 없어진다.
+"""
+
+# Q2. 다음 프로그램을 조건부 표현식으로 표현 하시오.
+ money = int(input())
+ if money >= 3000:
+     print("택시를 타고 간다")
+ else:
+     print("걸어 간다")
+ # 실행결과 :
+  5000 (입력)
+  택시를 타고 간다
+  2000 (입력)
+  걸어 간다
+ # 정답 :
+"택시를 타고 간다" if money >= 3000 else "걸어간다"
+
+"""
+조건식이 아닌 것
+money = int(input())
+if money >= 3000: print("택시를 타고 간다")
+else: print("걸어 간다")
+
+"택시를 타고 간다" if money >= 3000 else "걸어간다"
+"""
 
 ```
 
