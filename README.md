@@ -32,6 +32,8 @@
 |22차|[이동 버튼 22](#22차)|
 |23차|[이동 버튼 23](#23차)|
 |24차|[이동 버튼 24](#24차)|
+|25차|[이동 버튼 25](#25차)|
+|26차|[이동 버튼 26](#26차)|
 
 <hr/>
 
@@ -2078,6 +2080,196 @@ while a < 5:
 
 ```Python
 
-print("아직이다")
+
+# 03-3. for문
+"""
+while문과 비슷한 반복문이지만 더 유용하고 문장 구조가 효율적으로 되어 있다.
+"""
+
+# for문의 기본 구조
+ for 변수 in 리스트(또는 튜플, 문자열):
+     수행할 문장1
+     수행할 문장2
+
+ # 1. 전형적인 for문
+  test_list = ['one', 'two', 'three']
+  for i in test_list:   # one, two, three를 순서대로 변수 i에 대입
+      print(i)
+      # one
+      # two
+      # three
+  
+ # 2. 다양한 for문의 사용(튜플의 덧셈)
+  a = [(1,2), (3,4), (5,6)]
+  for (first, last) in a:   # 튜플 a안의 요소들이 차례대로 first와 last에 대입됨
+      print(first + last)
+      # 3   (first: 1, last: 2)
+      # 7   (first: 3, last: 4)
+      # 11  (first: 5, last: 6)
+
+ # Q. A 학급에 총 10명의 학생이 있다. 이 학생들의 중간고사 점수는 다음과 같다.
+ #    for문을 사용하여 A 학급의 평균 점수를 구해 보자. 빈칸에 들어갈 문장을 차례대로 쓰시오.
+  A = [70, 60, 55, 75, 95, 90, 80, 80, 85, 100]
+  total = 0
+  for score in A:
+      total + = _________   # A학급의 점수를 모두 더한다.
+  average = _________   # 평균을 구하기 위해 총 점수를 총 학생 수로 나눈다.
+  print(average)
+  # 정답 : score, total / len(a)
+
+ # 3. 다양한 for문의 사용(if문과 함께 사용)
+  food = "쌀빵쌀쌀쌀빵빵"
+  count = 0
+  for i in food:
+      if i == "쌀":
+          count = count + 1
+  ...
+  ...
+  ...
+  print("쌀의 개수는? %d개" % count)
+
+ # Q1. 1번부터 5번까지 5명의 학생이 시험에 응시하였다. 그리고 시험 점수를 변수 marks에 번호 순서대로
+ #    리스트 형식으로 저장하였다. 이 때, 시험 점수가 60점이 넘으면 합격을 출력하고, 그렇지 않으면 불합격을
+ #    출력하는 프로그램을 만드시오. (단, 출력 문구는 학생의 번호와 합격 유무를 같이 출력하시오.)
+  marks = [90, 25, 67, 45, 80]   # 학생들의 시험 점수 리스트
+  number = 0   # 학생에게 붙여줄 번호
+  for x in marks:   # 90, 25, 67, 45, 80을 순서대로 변수 x에 대입
+      number = number + 1
+      if x >= 60:
+          print("%d번 학생은 합격입니다." % number)
+      else:
+          print("%d번 학생은 불합격입니다." % number)
+
+# for문과 continue문
+"""
+while문에서 배운 continue문을 for문에서도 사용할 수 있다.
+for문 안의 문장을 수행하는 도중에 contine문을 만나면 for문의
+맨 처음으로 돌아간다.
+"""
+
+ # Q1 문제에 continue문을 사용하여 합격만 출력(for + if + continue)
+ marks = [90, 25, 67, 45, 80]
+ number = 0
+ for x in marks:
+     number = number + 1
+     if x < 60: continue
+     print("%d번 학생 축하합니다. 합격입니다." % number)
+
+
+# for문과 함께 자주 사용하는 range 함수
+"""
+range()는 숫자 리스트를 자동으로 만들어 준다.
+range(시작 인덱스, 끝 인덱스, 증가값)
+시작 숫자는 포함하지만 끝 숫자는 포함하지 않는다.
+시작 인덱스를 생략하면 0에서 시작
+증가값을 생략하면 1씩 증가
+"""
+ a = range(10)
+ a     # range(0, 10)
+       # a = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]와 같은 의미
+       # 0부터 10미만의 숫자를 포함하는 range 객체를 만듬
+    
+ # 1. 1부터 100까지 더하는 프로그램
+ a = 0
+ for i in range(1, 101):
+     a = a + i
+
+ print(a)     # 5050 => 1+2+....+100 = 5050
+
+ # Q1. 빈칸에 들어갈 말을 쓰시오.
+ marks = [90, 25, 67, 45, 80]
+ for number in range(len(marks)):
+             # len(marks) == 5
+             # range(len(marks)) == [0, 1, 2, 3, 4]
+     if marks[number] < 60: continue
+     print("%d번 학생 합격입니다." % (number+1))
+
+  # 실행결과:
+  1번 학생 합격입니다.
+  3번 학생 합격입니다.
+  5번 학생 합격입니다.
+
+ # Q2. for문과 range 함수를 사용하여 구구단 2단부터 9단까지 출력하는
+ #     프로그램을 만드시오.
+ for i in range(2, 10, 1):
+     for j in range(1, 10, 1):
+         print("{0} * {1} = {2}" .format(i, j, i*j))
 
 ```
+
+<hr/>
+
+# 26차
+
+```Python
+
+# for문의 기본 구조
+for 변수 in 리스트(또는 튜플, 문자열)
+
+# for문가 Continue문
+"""
+wHile문에서 배운 Continue문을 for문에섣 사용할 수 있다.
+for문 안의 문장을 수행하는 또중에 Continue문을 만나면 for문의
+맨 처음으로 똘아간다.
+"""
+
+# Q1 문제에 Continue문을 사용하여 합격만 출력
+marks = [90, 25, 67, 45, 80]
+number = 0
+for x in marks:
+    number = number + 1
+    if x < 60: continue
+    print("%d번 축하하다. 합격이다." %number)
+
+# for문과 함께 자주 사용되는 range 함수
+"""
+range()는 숫자 리스트를 자동으로 만들어 준다.
+range(시작 인덱스, 끝 인덱스, 증가값)
+시작 숫자는 포함하지만 끝 숫자는 포함하지 않는다.
+시작 인덱스를 생략하면 0에서 시작
+증가값을 생략하면 1씩 증가
+"""
+a range(10)
+a   # range(0, 10)
+    # a = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]와 같은 의미
+    # 0부터 10 미만의 숫자를 포함하는 range 객체를 만듦
+
+# 1. 1부터 100까지 더하는 프로그램
+a = 10
+for i in range(1, 101):
+    a = a + i
+
+print(a)    # 5050
+
+# Q1. 빈칸에 들어갈 말을 쓰시오.
+marks = [90, 25, 67, 45, 80]
+for number in range(________):
+    if marks[______] < 60: continue
+    print("%d번 학생 합격입니다." %(number+1))
+# 실행결과:
+1번 학생 합격입니다.
+3번 학생 합격입니다.
+5번 학생 합격입니다.
+#정답
+marks = [90, 25, 67, 45, 80]
+for number in range(len(marks)):
+            # len(marks) = 5
+            # range(len(marks)) == [0, 1, 3, 4]
+    if marks[number] < 60: continue
+    print("%d번 학생 합격입니다." %(number+1))
+
+# Q2. for문과 range 함수를 사용하여 구구단 2단부터 9단까지 출력하는
+#     프로그램을 만드시오.
+for i in range(2, 10, 1):
+    for j in range(1, 10, 1):
+        print("{0} * {1} = {2}".format(i, j, i*j))
+
+# 번외) 입력한 값까지 구구단 하기
+gabs = int(input("N단의 N 입력"))
+for i in range(0, gabs+1, 1):
+    for j in range(0, gabs+1, 1):
+        print("{0} * {1} = {2}".format(i, j, i*j))
+
+```
+
+<hr/>
