@@ -2399,3 +2399,50 @@ def is_odd(number):
 ```
 
 <hr/>
+
+# 28차
+
+```Python
+
+# 여러 개의 입력값을 받는 함수
+def 함수이름(*매개변수):        # *를 붙이면 입력값을 모아서 튜플로 만들어 준다.
+    return 수행할 문장
+    ...
+
+# 1에서  5까지 숫자를 입력받아 모두 더하는 함수를 만들려고 한다.
+def add_many(*args):
+    result = 0
+    for i in args:
+        result += i
+    return result
+
+a = add_many(1, 2, 3, 4, 5)
+print(a)    # 15
+
+# Q. 위 함수를 응용하여 여러 개의 값을 더하는 함수를 만들려고 한다.
+#    인수 자리에 '합'을 입력했을 때는 더하고,
+#    '곱'을 입력했을 때는 곱하는 함수를 만드시오.
+
+# 정답 :
+def add_mul(y, *args):
+    if y == "합":
+        result = 0
+        for i in args:
+            result += i
+        return result
+    elif y == "곱":
+        result = 1
+        for i in args:
+            result *= i
+        return result
+    else:
+        return print("잘못 입력했구나")
+
+x = input()
+a = add_mul(x, 1,2,3,4,5)
+print(a)    # 합을 입력했을 때는 15
+            # 곱을 입력했을 때는 120
+
+```
+
+<hr/>
