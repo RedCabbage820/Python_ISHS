@@ -2278,7 +2278,7 @@ for i in range(0, gabs+1, 1):
 
 # 27차
 
-```Pythoon
+```Python
 
 # 리스트 내포 사용하기
 """
